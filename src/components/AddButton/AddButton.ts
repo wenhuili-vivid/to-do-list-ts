@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 import styles from '../../styles/variables';
 
-const AddButton = styled.button<{primary: boolean}>`
+const AddButton = styled('button')<{primary: boolean}>`
   background: ${(props) => (props.primary ? styles.backgroundColor : 'white')};
   color:  ${(props) => (props.primary ? 'white' : styles.backgroundColor)};
   font-size: 1em;
