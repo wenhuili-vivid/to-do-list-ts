@@ -30,8 +30,11 @@ jobs:
       - name: Install dependencies
         run: npm install
 
-      - name: Run Lint
-        run: npm run lint
+      - name: Run TsLint
+        run: npm run tslint
+        
+      - name: Run StyleLint
+        run: npm run stylelint
 
       - name: Run Build
         run: npm run build
