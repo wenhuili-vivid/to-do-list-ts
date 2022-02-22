@@ -1,5 +1,4 @@
 import styled from 'styled-components';
-import PropTypes from 'prop-types';
 
 export const DeleteButton = styled('button')<{primary: boolean}>`
     background: ${(props) => (props.primary ? '#d84949' : 'transparent')};
@@ -10,9 +9,3 @@ export const DeleteButton = styled('button')<{primary: boolean}>`
     border: 1px solid lightcoral;
     border-radius: 3px;
 `;
-
-DeleteButton.propTypes = {
-  onClick: PropTypes.func.isRequired,
-  primary: PropTypes.bool.isRequired,
-  children: PropTypes.string.isRequired,
-};

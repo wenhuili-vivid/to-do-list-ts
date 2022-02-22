@@ -1,5 +1,5 @@
 import React from 'react';
-import {AddButton} from './AddButton';
+import { AddButton } from './AddButton';
 
 export default {
   title: 'Components/AddButton',
@@ -11,16 +11,16 @@ function Template(args) {
 export const Primary = Template.bind({});
 Primary.args = {
   primary: true,
-  label: '+ Create',
+  children: '+ Create',
 };
 
 export const Disabled = Template.bind({});
 Disabled.args = {
   disabled: true,
-  label: '+ Create',
+  children: '+ Create',
 };
 
 export const Label = Template.bind({});
 Label.args = {
-  label: '+ Create',
+  children: '+ Create',
 };

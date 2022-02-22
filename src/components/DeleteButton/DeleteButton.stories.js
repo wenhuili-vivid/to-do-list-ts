@@ -1,5 +1,5 @@
 import React from 'react';
-import DeleteButton from './DeleteButton';
+import { DeleteButton } from './DeleteButton';
 
 export default {
   title: 'Components/DeleteButton',
@@ -11,4 +11,5 @@ function Template(args) {
 export const Primary = Template.bind({});
 Primary.args = {
   primary: true,
+  children: 'Delete'
 };
