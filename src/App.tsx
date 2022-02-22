@@ -1,13 +1,9 @@
 import React from 'react';
-import AddButton from './components/AddButton';
+import ToDoList from './components/ToDoList';
 
 function App() {
-  function getAddHandler() {
-
-  }
-
   return (
-      <AddButton onClick={getAddHandler} primary={true} disabled={false}>+ Create</AddButton>
+      <ToDoList />
   );
 }
 
