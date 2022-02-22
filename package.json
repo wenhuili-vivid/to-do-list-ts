@@ -2,8 +2,7 @@
   "name": "to-do-list-ts",
   "version": "0.1.0",
   "private": false,
-  "homepage": "https://wenhuili-vivid.github.io/to-do-list-ts/s",
-  "main": "index.js",
+  "homepage": "https://wenhuili-vivid.github.io/to-do-list-ts/",
   "dependencies": {
     "@testing-library/jest-dom": "^5.16.2",
     "@testing-library/react": "^12.1.3",
