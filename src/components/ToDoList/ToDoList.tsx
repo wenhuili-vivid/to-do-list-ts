@@ -9,7 +9,7 @@ import { dateFormat } from '../Calendar/utils';
 import { getMyToDoList, setMyToDoList } from '../../store/myToDoList';
 
 function ToDoList() {
-  const [toDoItems, setToDoItems] = useState<[]>(getMyToDoList());
+  const [toDoItems, setToDoItems] = useState(getMyToDoList());
   const [isShowModal, setIsShowModal] = useState(false);
   const [currentCheckedDate, setCurrentCheckedDate] = useState(new Date());
   const [operatingToDoItemIndex, setOperatingToDoItemIndex] = useState(0);
@@ -24,18 +24,18 @@ function ToDoList() {
     setToDoItems(update(toDoItems, { $unshift: [{ isFinished: false, description: '', deadline: '' }] }));
   };
 
-  const getDescriptionChangeHandler = (index, description) => {
+  const getDescriptionChangeHandler = (index: number, description: string) => {
     setToDoItems(update(toDoItems, { [index]: { description: { $set: description } } }));
   };
 
-  const getStatusChangeHandler = (index, isFinished) => {
+  const getStatusChangeHandler = (index: number, isFinished: boolean) => {
     setToDoItems(update(toDoItems, { [index]: { isFinished: { $set: isFinished } } }));
   };
 
-  const getAddDateFocusHandler = (index) => {
+  const getAddDateFocusHandler = (index: number) => {
     const { deadline } = toDoItems[index];
     setCurrentCheckedDate(new Date(deadline));
-    const element = document.getElementsByTagName('li')[index].children[1];
+    const element: HTMLElement = document.getElementsByTagName('li')[index].children[1] as HTMLElement;
     setModalPositionTop(`${element.offsetTop + element.offsetHeight}px`);
     setModalPositionLeft(`${element.offsetLeft}px`);
     setIsShowModal(true);
@@ -46,7 +46,7 @@ function ToDoList() {
     setIsShowModal(false);
     setCurrentCheckedDate(deadline);
     setToDoItems(update(toDoItems, {
-      [operatingToDoItemIndex]: { deadline: { $set: dateFormat(deadline, 'yyyy-MM-dd') } },
+      [operatingToDoItemIndex]: { deadline: { $set: dateFormat(deadline, 'yyyy-MM-dd', '') } },
     }));
   };
 
@@ -62,10 +62,10 @@ function ToDoList() {
     <ToDoItem
       key={index}
       item={item}
-      onDescriptionChange={(description: any) => getDescriptionChangeHandler(index, description)}
-      onStatusChange={(isFinished: any) => getStatusChangeHandler(index, isFinished)}
-      onAddDateFocus={() => getAddDateFocusHandler(index)}
-      onDelete={() => (getDeleteHandler(index))}
+      onDescriptionChange={(description: string) => getDescriptionChangeHandler(index as number, description)}
+      onStatusChange={(isFinished: boolean) => getStatusChangeHandler(index as number, isFinished)}
+      onAddDateFocus={() => getAddDateFocusHandler(index as number)}
+      onDelete={() => (getDeleteHandler(index as number))}
     />
   );
 

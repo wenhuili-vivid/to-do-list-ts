@@ -16,7 +16,7 @@ function Modal({
   if (!onOpen) {
     return null;
   }
-  const node = document.getElementById('root');
+  const node = document.getElementById('root')!;
 
   const handleClose = () => {
     onClose();

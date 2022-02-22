@@ -5,7 +5,7 @@ import { getFirstDayOfLastMonth, getFirstDayOfMonth, getFirstDayOfNextMonth } fr
 
 interface CalendarProps {
     checkedDate: Date,
-    onAddDateChecked: () => Date
+    onAddDateChecked: (deadline: Date) => void
 }
 
 function Calendar({ checkedDate, onAddDateChecked }: CalendarProps) {
