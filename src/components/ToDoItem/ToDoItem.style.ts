@@ -10,6 +10,8 @@ export const CheckBox = styled.div`
   vertical-align: middle;
 `;
 
+export const CheckInput = styled.input.attrs({ type: "checkbox" })``;
+
 export const ToDoItemContent = styled.div`
   padding: .5em;
   display: inline-block;

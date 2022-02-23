@@ -1,6 +1,6 @@
 import React from 'react';
 import { DeleteButton } from '../DeleteButton/DeleteButton';
-import { CheckBox, DateInput, DescriptionInput, ToDoItemBox, ToDoItemContent } from './ToDoItem.style';
+import { CheckBox, CheckInput, DateInput, DescriptionInput, ToDoItemBox, ToDoItemContent } from './ToDoItem.style';
 
 
 function ToDoItem({ ...props }) {
@@ -24,7 +24,7 @@ function ToDoItem({ ...props }) {
   return (
     <ToDoItemBox>
       <CheckBox>
-        <input type="checkbox" checked={isFinished} onChange={handleCheckboxChange} />
+        <CheckInput checked={isFinished} onChange={handleCheckboxChange} />
       </CheckBox>
       <ToDoItemContent>
         <DescriptionInput type="text" placeholder="Please input your todo" value={description} onChange={handleDescriptionChange} disabled={isFinished} />
@@ -37,14 +37,3 @@ function ToDoItem({ ...props }) {
 
 export default ToDoItem;
 
-// ToDoItem.propTypes = {
-//   onStatusChange: PropTypes.func.isRequired,
-//   onDescriptionChange: PropTypes.func.isRequired,
-//   onAddDateFocus: PropTypes.func.isRequired,
-//   onDelete: PropTypes.func.isRequired,
-//   item: PropTypes.shape({
-//     description: PropTypes.string,
-//     isFinished: PropTypes.bool,
-//     deadline: PropTypes.string,
-//   }).isRequired,
-// };

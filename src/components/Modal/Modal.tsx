@@ -10,9 +10,7 @@ interface ModalProps {
   left: string
 }
 
-function Modal({
-  onOpen, children, onClose, top, left,
-}: ModalProps) {
+function Modal({ onOpen, children, onClose, top, left }: ModalProps) {
   if (!onOpen) {
     return null;
   }
@@ -24,10 +22,12 @@ function Modal({
 
   return createPortal(
     <ModalBox style={{ top, left }}>
-      <div>{children}</div>
-      <CloseButton onClick={handleClose} primary>
-        Close
-      </CloseButton>
+      <section>{children}</section>
+      <footer>
+        <CloseButton onClick={handleClose} primary>
+          Close
+        </CloseButton>
+      </footer>
     </ModalBox>,
       node,
   );

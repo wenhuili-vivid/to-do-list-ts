@@ -3,7 +3,7 @@ import update from 'immutability-helper';
 import {
   getFirstDayOfCalendar, isCheckedDate, isCurrentDay, isCurrentMonth,
 } from './utils';
-import { BodyWrapper, DaysInWeek, WeekLabel, WeekList } from './Calendar.style';
+import { BodyWrapper, WeekLabel, WeekLabelItem, WeekList, DaysInWeek, DayItemBox } from './Calendar.style';
 
 interface CalendarBodyProps {
   checkedDate: Date,
@@ -25,10 +25,10 @@ interface DayItem {
 }
 
 function CalendarBody({ checkedDate, firstDayOfMonth, onAddDateChecked }: CalendarBodyProps) {
-  const [weekValues, setWeekValues] = useState<WeekItem[]>([]);
   const weekLabels = ['Sun.', 'Mon.', 'Tues.', 'Wed.', 'Thur.', 'Fri.', 'Sat.'];
+  const [weekValues, setWeekValues] = useState<WeekItem[]>([]);
 
-  const setWeekValuesArray = () => {
+  useEffect(() => {
     const newWeekValuesList = [];
     let dayOfCalendar = getFirstDayOfCalendar(firstDayOfMonth);
 
@@ -51,11 +51,7 @@ function CalendarBody({ checkedDate, firstDayOfMonth, onAddDateChecked }: Calend
       newWeekValuesList.push(weekItem);
       setWeekValues(newWeekValuesList);
     }
-  };
-
-  useEffect(() => {
-    setWeekValuesArray();
-  }, [firstDayOfMonth]);
+  }, [firstDayOfMonth, checkedDate]);
 
   const handleDateChecked = (date: Date, weekIndex: number, dayIndex: number) => {
     setWeekValues(update(weekValues, {
@@ -72,27 +68,27 @@ function CalendarBody({ checkedDate, firstDayOfMonth, onAddDateChecked }: Calend
     <BodyWrapper>
       <WeekLabel>
         {weekLabels.map((label) => (
-          <div key={label}>
+          <WeekLabelItem key={label}>
             {label}
-          </div>
+          </WeekLabelItem>
         ))}
       </WeekLabel>
       <WeekList>
         {weekValues.map((week, weekIndex) => (
           <DaysInWeek key={week.id}>
             {week.daysInWeek.map((day, dayIndex) => (
-              <div
+              <DayItemBox
                 key={dayIndex}
                 role="button"
                 tabIndex={0}
                 onClick={() => handleDateChecked(day.date, weekIndex, dayIndex)}
                 onKeyDown={() => handleDateChecked(day.date, weekIndex, dayIndex)}
-                className={`${day.isCurrentMonth ? 'current-month' : ''
-                } ${day.isCurrentDay ? 'current-day' : ''
-                } ${day.isCheckedDay ? 'checked-day' : ''}`}
+                isCurrentMonth={day.isCurrentMonth}
+                isCurrentDay={day.isCurrentDay}
+                isCheckedDay={day.isCheckedDay}
               >
                 {day.day}
-              </div>
+              </DayItemBox>
             ))}
           </DaysInWeek>
         ))}
