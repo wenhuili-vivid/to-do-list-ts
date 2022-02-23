@@ -1,5 +1,4 @@
-import React from 'react';
-import {Meta, Story} from "@storybook/react";
+import {Meta} from "@storybook/react";
 import ToDoList from "./ToDoList";
 
 export default {
@@ -7,5 +6,5 @@ export default {
   component: ToDoList,
 } as Meta;
 
-const Template: Story = (args) => <ToDoList {...args} />;
+// const Template: Story = (args) => <ToDoList {...args} />;
 

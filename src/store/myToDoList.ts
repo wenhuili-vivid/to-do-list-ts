@@ -1,6 +1,6 @@
 import {ToDoItems} from "../components/ToDoItem/ToDoItem";
 
-const toDoListData: string = 'myToDoList';
+const toDoListData = 'myToDoList';
 
 export const getMyToDoList = (): ToDoItems[] => (
     JSON.parse(window.localStorage.getItem(toDoListData) || '{}')

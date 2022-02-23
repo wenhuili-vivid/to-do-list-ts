@@ -11,8 +11,8 @@ interface CalendarHeaderProps {
 function CalendarHeader({ firstDayOfMonth, onLastMonthClick, onNextMonthClick }: CalendarHeaderProps) {
   const [headerContent, setHeaderContent] = useState<string>('');
 
-  const leftArrow: string = '<';
-  const rightArrow: string = '>';
+  const leftArrow = '<';
+  const rightArrow = '>';
 
   useEffect(() => {
     setHeaderContent(getHeaderContent(new Date(firstDayOfMonth)));
