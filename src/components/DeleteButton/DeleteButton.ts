@@ -8,8 +8,8 @@ export interface DeleteButtonProps {
 }
 
 export const DeleteButton = styled.button<DeleteButtonProps>`
-    background: ${(props) => (props.primary ? styles.dangerBackgroundColor : 'transparent')};
-    color:  ${(props) => (props.primary ? styles.primaryColor : styles.dangerBackgroundColor)};
+    background: ${/*sc-value*/(props) => (props.primary ? styles.dangerBackgroundColor : 'transparent')};
+    color:  ${/*sc-value*/(props) => (props.primary ? styles.primaryColor : styles.dangerBackgroundColor)};
     font-size: 1em;
     margin: 0.5em;
     padding: 0.25em 1em;

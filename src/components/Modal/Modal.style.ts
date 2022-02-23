@@ -17,7 +17,7 @@ export const CloseButton = styled('button')<{primary: boolean}>`
   padding: 0.25em 1em;
   border: 1px solid ${styles.dangerBackgroundColorLight};
   border-radius: ${styles.buttonRadius};
-  background: ${(props) => (props.primary ? styles.dangerBackgroundColor : 'transparent')};
-  color:  ${(props) => (props.primary ? styles.primaryColor : styles.defaultBackgroundColor)};
+  background: ${/*sc-value*/(props) => (props.primary ? styles.dangerBackgroundColor : 'transparent')};
+  color:  ${/*sc-value*/(props) => (props.primary ? styles.primaryColor : styles.defaultBackgroundColor)};
   font-size: .8em;
 `;
