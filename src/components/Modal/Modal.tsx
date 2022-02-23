@@ -2,7 +2,7 @@ import React from 'react';
 import { createPortal } from 'react-dom';
 import { ModalBox, CloseButton} from './Modal.style';
 
-interface ModalProps {
+export interface ModalProps {
   onOpen: boolean,
   children: any,
   onClose: () => void,

@@ -12,7 +12,4 @@ const Template: Story<CalendarProps> = (args: CalendarProps) => <Calendar {...ar
 export const Basic = Template.bind({});
 Basic.args = {
   checkedDate: new Date(),
-  onAddDateChecked: (deadline: Date) => {
-
-  },
 };
