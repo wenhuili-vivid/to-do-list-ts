@@ -1,7 +1,13 @@
 import styled from 'styled-components';
 import styles from '../../styles/variables';
 
-export const DeleteButton = styled('button')<{primary: boolean}>`
+export interface DeleteButtonProps {
+    primary: boolean,
+    children: string,
+    onClick: () => void
+}
+
+export const DeleteButton = styled.button<DeleteButtonProps>`
     background: ${(props) => (props.primary ? styles.dangerBackgroundColor : 'transparent')};
     color:  ${(props) => (props.primary ? styles.primaryColor : styles.dangerBackgroundColor)};
     font-size: 1em;

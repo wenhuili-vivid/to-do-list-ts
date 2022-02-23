@@ -3,7 +3,7 @@ import CalendarHeader from './CalendarHeader';
 import CalendarBody from './CalendarBody';
 import { getFirstDayOfLastMonth, getFirstDayOfMonth, getFirstDayOfNextMonth } from './utils';
 
-interface CalendarProps {
+export interface CalendarProps {
     checkedDate: Date,
     onAddDateChecked: (deadline: Date) => void
 }

@@ -1,17 +1,20 @@
 import React from 'react';
-import { AddButton } from './AddButton';
+import {Meta, Story} from "@storybook/react";
+import { action } from '@storybook/addon-actions';
+import { AddButton, AddButtonProps } from './AddButton';
 
 export default {
   title: 'Components/AddButton',
   component: AddButton,
-};
-function Template(args) {
-  return <AddButton {...args} />;
-}
+} as Meta;
+
+const Template: Story<AddButtonProps> = (args: AddButtonProps) => <AddButton {...args} />;
+
 export const Primary = Template.bind({});
 Primary.args = {
   primary: true,
   children: '+ Create',
+  onClick: action('clicked')
 };
 
 export const Disabled = Template.bind({});
@@ -23,4 +26,5 @@ Disabled.args = {
 export const Label = Template.bind({});
 Label.args = {
   children: '+ Create',
+  onClick: action('clicked')
 };

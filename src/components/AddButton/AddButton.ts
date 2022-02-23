@@ -1,7 +1,14 @@
 import styled from 'styled-components';
 import styles from '../../styles/variables';
 
-export const AddButton = styled('button')<{primary: boolean}>`
+export interface AddButtonProps {
+    primary: boolean,
+    disabled: boolean,
+    children: string,
+    onClick: () => void
+}
+
+export const AddButton = styled.button<AddButtonProps>`
   margin: 0.5em;
   padding: 0.25em 1em;
   border: 1px solid ${styles.primaryBackgroundColor};
