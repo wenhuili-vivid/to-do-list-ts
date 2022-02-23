@@ -17,11 +17,11 @@ interface ToDoItemProps {
 }
 
 function ToDoItem({ ...props }: ToDoItemProps) {
-  const handleCheckboxChange = (e: { target: { checked: any; }; }) => {
+  const handleCheckboxChange = (e: { target: { checked: boolean; }; }) => {
     props.onStatusChange(e.target.checked);
   };
 
-  const handleDescriptionChange = (e: { target: { value: any; }; }) => {
+  const handleDescriptionChange = (e: { target: { value: string; }; }) => {
     props.onDescriptionChange(e.target.value);
   };
 
