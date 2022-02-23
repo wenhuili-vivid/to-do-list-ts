@@ -1,6 +1,6 @@
 import React from 'react';
 import { createPortal } from 'react-dom';
-import { CloseButton, ModalBox } from './Modal.style';
+import { ModalBox, CloseButton} from './Modal.style';
 
 interface ModalProps {
   onOpen: boolean,
@@ -14,7 +14,7 @@ function Modal({ onOpen, children, onClose, top, left }: ModalProps) {
   if (!onOpen) {
     return null;
   }
-  const node = document.getElementById('root')!;
+  const node: HTMLElement = document.getElementById('root')!;
 
   const handleClose = () => {
     onClose();

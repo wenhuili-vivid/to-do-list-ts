@@ -48,10 +48,6 @@ export const dateFormat = (unformatDate: Date, format: string, formatDateNullVal
   return transfer(date, format);
 };
 
-/**
- * 获取日历header内容 格式为：MM/yy
- * @param {*} date
- */
 export const getHeaderContent = (date: Date) => {
   const currentDate = new Date(date);
   return dateFormat(currentDate, 'MM/yy', '');

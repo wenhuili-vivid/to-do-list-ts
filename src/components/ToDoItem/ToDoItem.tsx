@@ -2,8 +2,21 @@ import React from 'react';
 import { DeleteButton } from '../DeleteButton/DeleteButton';
 import { CheckBox, CheckInput, DateInput, DescriptionInput, ToDoItemBox, ToDoItemContent } from './ToDoItem.style';
 
+export interface ToDoItems {
+    description: string,
+    isFinished: boolean,
+    deadline: string
+}
 
-function ToDoItem({ ...props }) {
+interface ToDoItemProps {
+    onStatusChange: (currentStatus: boolean) => void,
+    onDescriptionChange: (currentDescription: string) => void,
+    onAddDateFocus: () => void,
+    onDelete: () => void,
+    item: ToDoItems
+}
+
+function ToDoItem({ ...props }: ToDoItemProps) {
   const handleCheckboxChange = (e: { target: { checked: any; }; }) => {
     props.onStatusChange(e.target.checked);
   };
@@ -27,8 +40,8 @@ function ToDoItem({ ...props }) {
         <CheckInput checked={isFinished} onChange={handleCheckboxChange} />
       </CheckBox>
       <ToDoItemContent>
-        <DescriptionInput type="text" placeholder="Please input your todo" value={description} onChange={handleDescriptionChange} disabled={isFinished} />
-        <DateInput type="text" placeholder="Add Date" value={deadline} onFocus={handleAddDateFocus} readOnly />
+        <DescriptionInput placeholder="Please input your todo" value={description} onChange={handleDescriptionChange} disabled={isFinished} />
+        <DateInput placeholder="Add Date" value={deadline} onFocus={handleAddDateFocus} readOnly disabled={isFinished} />
       </ToDoItemContent>
       <DeleteButton onClick={handleDeleteButtonClick} primary={false}>Delete</DeleteButton>
     </ToDoItemBox>

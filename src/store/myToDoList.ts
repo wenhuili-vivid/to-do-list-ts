@@ -1,9 +1,11 @@
-const toDoListData = 'myToDoList';
+import {ToDoItems} from "../components/ToDoItem/ToDoItem";
 
-export const getMyToDoList = () => (
+const toDoListData: string = 'myToDoList';
+
+export const getMyToDoList = (): ToDoItems[] => (
     JSON.parse(window.localStorage.getItem(toDoListData) || '{}')
 )
 
-export const setMyToDoList = (myToDoList: []) => {
+export const setMyToDoList = (myToDoList: ToDoItems[]): void => {
   window.localStorage.setItem(toDoListData, JSON.stringify(myToDoList));
 };

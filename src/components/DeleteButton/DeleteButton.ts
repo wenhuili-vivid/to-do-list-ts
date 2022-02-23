@@ -8,5 +8,5 @@ export const DeleteButton = styled('button')<{primary: boolean}>`
     margin: 0.5em;
     padding: 0.25em 1em;
     border: 1px solid ${styles.dangerBackgroundColorLight};
-    border-radius: 3px;
+    border-radius: ${styles.buttonRadius};
 `;

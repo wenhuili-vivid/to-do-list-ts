@@ -1,5 +1,5 @@
-import styled from "styled-components";
-import styles from "../../styles/variables";
+import styled from 'styled-components';
+import styles from '../../styles/variables';
 
 export const HeaderWrapper = styled.header`
   margin: 0;
@@ -25,16 +25,16 @@ export const RightArrow = styled.span`
 
 export const HeaderContent = styled.span`
   padding: .5em;
-  font-size: 1em;
   color: ${styles.primaryFontColor};
+  font-size: 1em;
 `;
 
 export const BodyWrapper = styled.section`
   margin: 0;
   padding: 0;
   border-left: 1px solid ${styles.primaryBackgroundColorLight};
-  font-size: .8em;
   text-align: center;
+  font-size: .8em;
 `;
 
 export const WeekLabel = styled.div`
@@ -44,8 +44,8 @@ export const WeekLabel = styled.div`
 `;
 
 export const WeekLabelItem = styled.div`
-  padding: .5em;
   flex: 1;
+  padding: .5em;
   border-right:  1px solid ${styles.primaryBackgroundColorLight};
   border-bottom: 1px solid ${styles.primaryBackgroundColorLight};
   color: ${styles.primaryFontColor};
@@ -63,8 +63,8 @@ export const DaysInWeek = styled.div`
 `;
 
 export const DayItemBox = styled('div')<{isCurrentMonth: boolean, isCurrentDay: boolean, isCheckedDay: boolean}>`
-  padding: .5em;
   flex: 1;
+  padding: .5em;
   border-right:  1px solid ${styles.primaryBackgroundColorLight};
   border-bottom: 1px solid ${styles.primaryBackgroundColorLight};
   ${(props) => {

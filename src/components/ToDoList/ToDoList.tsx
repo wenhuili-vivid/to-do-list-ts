@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import update from 'immutability-helper';
-import ToDoItem from '../ToDoItem/ToDoItem';
+import ToDoItem, {ToDoItems} from '../ToDoItem/ToDoItem';
 import { AddButton } from '../AddButton/AddButton';
 import { Wrapper, Title, ToDoListBox } from './ToDoList.style';
 import Modal from '../Modal/Modal';
@@ -9,12 +9,12 @@ import { dateFormat } from '../Calendar/utils';
 import { getMyToDoList, setMyToDoList } from '../../store/myToDoList';
 
 function ToDoList() {
-  const [toDoItems, setToDoItems] = useState(getMyToDoList());
-  const [isShowModal, setIsShowModal] = useState(false);
-  const [currentCheckedDate, setCurrentCheckedDate] = useState(new Date());
-  const [operatingToDoItemIndex, setOperatingToDoItemIndex] = useState(0);
-  const [modalPositionTop, setModalPositionTop] = useState('0px');
-  const [modalPositionLeft, setModalPositionLeft] = useState('0px');
+  const [toDoItems, setToDoItems] = useState<ToDoItems[]>(getMyToDoList());
+  const [isShowModal, setIsShowModal] = useState<boolean>(false);
+  const [currentCheckedDate, setCurrentCheckedDate] = useState<Date>(new Date());
+  const [operatingToDoItemIndex, setOperatingToDoItemIndex] = useState<number>(0);
+  const [modalPositionTop, setModalPositionTop] = useState<string>('0px');
+  const [modalPositionLeft, setModalPositionLeft] = useState<string>('0px');
 
   useEffect(() => {
     setMyToDoList(toDoItems);
@@ -58,7 +58,7 @@ function ToDoList() {
     setToDoItems(update(toDoItems, { $splice: [[index, 1]] }));
   };
 
-  const renderToDoItem = (item: [], index: React.Key ) => (
+  const renderToDoItem = (item: ToDoItems, index: React.Key ) => (
     <ToDoItem
       key={index}
       item={item}

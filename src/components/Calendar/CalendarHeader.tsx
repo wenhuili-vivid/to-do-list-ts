@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
-import { getHeaderContent } from './utils';
 import {HeaderContent, HeaderWrapper, LeftArrow, RightArrow } from './Calendar.style';
+import { getHeaderContent } from './utils';
 
 interface CalendarHeaderProps {
     firstDayOfMonth: Date,
@@ -9,10 +9,10 @@ interface CalendarHeaderProps {
 }
 
 function CalendarHeader({ firstDayOfMonth, onLastMonthClick, onNextMonthClick }: CalendarHeaderProps) {
-  const [headerContent, setHeaderContent] = useState('');
+  const [headerContent, setHeaderContent] = useState<string>('');
 
-  const leftArrow = '<';
-  const rightArrow = '>';
+  const leftArrow: string = '<';
+  const rightArrow: string = '>';
 
   useEffect(() => {
     setHeaderContent(getHeaderContent(new Date(firstDayOfMonth)));
@@ -28,11 +28,11 @@ function CalendarHeader({ firstDayOfMonth, onLastMonthClick, onNextMonthClick }:
 
   return (
     <HeaderWrapper>
-      <LeftArrow onClick={handleShowLastMonth}>
+      <LeftArrow role="button" tabIndex={0} onClick={handleShowLastMonth}>
         {leftArrow}
       </LeftArrow>
       <HeaderContent>{headerContent}</HeaderContent>
-      <RightArrow onClick={handleShowNextMonth}>
+      <RightArrow role="button" tabIndex={0} onClick={handleShowNextMonth}>
         {rightArrow}
       </RightArrow>
     </HeaderWrapper>

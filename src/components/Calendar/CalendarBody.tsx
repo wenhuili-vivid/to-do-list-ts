@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import update from 'immutability-helper';
+import { BodyWrapper, WeekLabel, WeekLabelItem, WeekList, DaysInWeek, DayItemBox } from './Calendar.style';
 import {
   getFirstDayOfCalendar, isCheckedDate, isCurrentDay, isCurrentMonth,
 } from './utils';
-import { BodyWrapper, WeekLabel, WeekLabelItem, WeekList, DaysInWeek, DayItemBox } from './Calendar.style';
 
 interface CalendarBodyProps {
   checkedDate: Date,
@@ -25,7 +25,7 @@ interface DayItem {
 }
 
 function CalendarBody({ checkedDate, firstDayOfMonth, onAddDateChecked }: CalendarBodyProps) {
-  const weekLabels = ['Sun.', 'Mon.', 'Tues.', 'Wed.', 'Thur.', 'Fri.', 'Sat.'];
+  const weekLabels: string[] = ['Sun.', 'Mon.', 'Tues.', 'Wed.', 'Thur.', 'Fri.', 'Sat.'];
   const [weekValues, setWeekValues] = useState<WeekItem[]>([]);
 
   useEffect(() => {
@@ -67,16 +67,16 @@ function CalendarBody({ checkedDate, firstDayOfMonth, onAddDateChecked }: Calend
   return (
     <BodyWrapper>
       <WeekLabel>
-        {weekLabels.map((label) => (
+        {weekLabels.map((label: string) => (
           <WeekLabelItem key={label}>
             {label}
           </WeekLabelItem>
         ))}
       </WeekLabel>
       <WeekList>
-        {weekValues.map((week, weekIndex) => (
+        {weekValues.map((week: WeekItem, weekIndex: number) => (
           <DaysInWeek key={week.id}>
-            {week.daysInWeek.map((day, dayIndex) => (
+            {week.daysInWeek.map((day: DayItem, dayIndex: number) => (
               <DayItemBox
                 key={dayIndex}
                 role="button"
