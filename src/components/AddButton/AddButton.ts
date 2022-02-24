@@ -5,7 +5,7 @@ export interface AddButtonProps {
     primary: boolean,
     disabled: boolean,
     children: string,
-    onClick: () => void
+    onClick?: () => void
 }
 
 export const AddButton = styled.button<AddButtonProps>`
