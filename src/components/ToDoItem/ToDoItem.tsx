@@ -8,7 +8,7 @@ export interface ToDoItems {
     deadline: string
 }
 
-interface ToDoItemProps {
+export interface ToDoItemProps {
     onStatusChange: (currentStatus: boolean) => void,
     onDescriptionChange: (currentDescription: string) => void,
     onAddDateFocus: () => void,
