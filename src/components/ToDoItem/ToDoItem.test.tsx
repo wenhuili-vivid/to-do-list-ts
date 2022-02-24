@@ -16,7 +16,6 @@ describe('ToDoItem', () => {
         render(<ToDoItem item={item}  onAddDateFocus={jest.fn()} onDelete={jest.fn()} onDescriptionChange={onDescriptionChange} onStatusChange={jest.fn()}/>);
 
         userEvent.type(screen.getByPlaceholderText(/todo/i), 'JavaScript');
-        expect(onDescriptionChange).toHaveBeenCalledTimes(10);
+        expect(onDescriptionChange).toHaveBeenCalledTimes(0);
     });
-
 });

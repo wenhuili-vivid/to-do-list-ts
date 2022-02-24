@@ -1,13 +1,14 @@
 import React from 'react';
 import { renderHook, act } from '@testing-library/react-hooks';
 import ToDoList from "./ToDoList";
-import {fireEvent, getByText} from "@testing-library/react";
+import {fireEvent, getByText, render, screen} from "@testing-library/react";
+import {getMyToDoList} from "../../store/myToDoList";
 
 describe('ToDoList', () => {
-    // it('renders an to do list', () => {
-    //     render(<ToDoList />);
-    //     expect(screen.findByLabelText('ul')).toBeInTheDocument();
-    // });
+    it('renders an empty to do list', async () => {
+        render(<ToDoList />);
+
+    });
 
     // it('renders an to do list',  async () => {
     //     const { result } = renderHook(() => ToDoList());
