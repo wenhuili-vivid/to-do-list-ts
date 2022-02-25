@@ -1,23 +1,23 @@
 import React from 'react';
 import { renderHook, act } from '@testing-library/react-hooks';
+import { screen, fireEvent, getByText, render } from "@testing-library/react";
 import ToDoList from "./ToDoList";
-import {fireEvent, getByText, render, screen} from "@testing-library/react";
-import {getMyToDoList} from "../../store/myToDoList";
 
 describe('ToDoList', () => {
-    it('renders an empty to do list', async () => {
-        render(<ToDoList />);
+    it('renders an empty to do list',() => {
+        const { getByText } = render(<ToDoList />);
 
+        expect(getByText('To Do List')).toBeInTheDocument();
+        expect(getByText('+ Create')).toBeInTheDocument();
+        expect(screen.getByRole('list')).toBeEmptyDOMElement();
     });
 
-    // it('renders an to do list',  async () => {
-    //     const { result } = renderHook(() => ToDoList());
-    //     console.log("rederlist6", result)
-    //    // fireEvent.click(getByText('+ Create'))
-    //     // act(() => {
-    //     //     result.current.getAddHandler();
-    //     // })
-    //     expect(result.current).toBe(0)
-    //     expect(typeof result.current.getAddHandler).toBe('function')
-    // });
+    it('should add a to do item when create button clicked', () => {
+        const { getByText } = render(<ToDoList />);
+
+        fireEvent.click(getByText('+ Create'));
+        fireEvent.click(getByText('+ Create'));
+        expect(screen.getAllByRole('listitem').length).toBe(2);
+    });
+
 });
